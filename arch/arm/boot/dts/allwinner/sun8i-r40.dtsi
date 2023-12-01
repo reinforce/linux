@@ -289,6 +289,21 @@
 			#dma-cells = <1>;
 		};
 
+		nfc: nand-controller@1c03000 {
+			compatible = "allwinner,sun8i-a23-nand-controller";
+			reg = <0x01c03000 0x1000>;
+			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
+			clocks = <&ccu CLK_BUS_NAND>, <&ccu CLK_NAND>;
+			clock-names = "ahb", "mod";
+			resets = <&ccu RST_BUS_NAND>;
+			reset-names = "ahb";
+			dmas = <&dma 7>;
+			dma-names = "rxtx";
+			status = "disabled";
+			#address-cells = <1>;
+			#size-cells = <0>;
+		};
+
 		spi0: spi@1c05000 {
 			compatible = "allwinner,sun8i-r40-spi",
 				     "allwinner,sun8i-h3-spi";
@@ -660,6 +675,51 @@
 				function = "mmc3";
 				drive-strength = <30>;
 				bias-pull-up;
+			};
+
+			/omit-if-no-ref/
+			nand_pins: nand-pins {
+				pins = "PC0", "PC1", "PC2",
+				       "PC5", "PC8", "PC9", "PC10",
+				       "PC11", "PC12", "PC13", "PC14",
+				       "PC15", "PC24";
+				function = "nand0";
+			};
+
+			/omit-if-no-ref/
+			nand_cs0_pin: nand-cs0-pin {
+				pins = "PC4";
+				function = "nand0";
+			};
+
+			/omit-if-no-ref/
+			nand_cs1_pin: nand-cs1-pin {
+				pins = "PC3";
+				function = "nand0";
+			};
+
+			/omit-if-no-ref/
+			nand_cs2_pin: nand-cs2-pin {
+				pins = "PC17";
+				function = "nand0";
+			};
+
+			/omit-if-no-ref/
+			nand_cs3_pin: nand-cs3-pin {
+				pins = "PC18";
+				function = "nand0";
+			};
+
+			/omit-if-no-ref/
+			nand_rb0_pin: nand-rb0-pin {
+				pins = "PC6";
+				function = "nand0";
+			};
+
+			/omit-if-no-ref/
+			nand_rb1_pin: nand-rb1-pin {
+				pins = "PC7";
+				function = "nand0";
 			};
 
 			/omit-if-no-ref/
