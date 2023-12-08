@@ -711,6 +711,30 @@
 			};
 
 			/omit-if-no-ref/
+			nand_cs4_pin: nand-cs4-pin {
+				pins = "PC19";
+				function = "nand0";
+			};
+
+			/omit-if-no-ref/
+			nand_cs5_pin: nand-cs5-pin {
+				pins = "PC20";
+				function = "nand0";
+			};
+
+			/omit-if-no-ref/
+			nand_cs6_pin: nand-cs6-pin {
+				pins = "PC21";
+				function = "nand0";
+			};
+
+			/omit-if-no-ref/
+			nand_cs7_pin: nand-cs7-pin {
+				pins = "PC22";
+				function = "nand0";
+			};
+
+			/omit-if-no-ref/
 			nand_rb0_pin: nand-rb0-pin {
 				pins = "PC6";
 				function = "nand0";
